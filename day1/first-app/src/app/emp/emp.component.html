@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="bg-primary text-white text-center">Wolcome to Employee Page</h1>
+    <h1 class="bg-primary text-white text-center">DataBindings in Angular</h1>
+</div>
+<ul>
+    <li>Interpolation</li>
+    <li>Property Binding</li>
+    <li>Event Binding</li>
+    <li>Two-way Binding</li>
+</ul>
+
+<h2 class="text-center">Employee Name {{empName}}</h2>
+<h2>Addition of 10 + 2 is equal to {{10 + 2}}</h2>
+<img src="{{imgUrl}}" alt="Angular Logo" class="img-fluid">
+
+<img [src]="imgUrl" alt="Angular Logo" class="img-fluid"/>
+<br/>
+Employee Name: <input type="text" [value]="empName"/>
+<br/>
+<h3>Event Binding</h3>
+<button class="btn btn-long btn-primary text-white m-1 p-1"
+        (click)="welcome($event)">Change Employee Name</button>
+<br/>
+<h2>2 way data binding</h2>
+Employee Name: <input type="text" [(ngModel)]="empName"/>
+<br/>
+<h2 class="text-center bg-success text-white">Employee Name: {{empName}}</h2>
+<br/>
+<button [disabled]="isDisabled">Property Binding Button</button>
+<br/>
+<button disabled="{{isDisabled}}">Interpolation Binding Button</button>
+<br/>
+<button (click)="changeProperty()">Change property</button>
