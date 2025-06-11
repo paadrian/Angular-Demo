@@ -1,0 +1,24 @@
+<table class="table table-bordered table-hover table-success">
+    <thead>
+        <tr>
+            <th>ProductId</th>
+            <th>ProductName</th>
+            <th>ProductDescription</th>
+            <th>ProductDate</th>
+            <th>ProductPrice</th>
+            <th>ProductPrice</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name | titlecase}}</td>
+            <td>{{p.description | uppercase}}</td>
+            <!-- <td>{{p.manufaturingDate | date:'fullDate':'en-UK'}}</td> -->
+            <td>{{p.manufaturingDate | date:'dd-MMM-yyyy':'ro-RO'}}</td>
+            <td>{{p.price | currency:'RON':'code':'5.1-2'}}</td>
+            <!-- <td>{{p.price | currency:'EUR'}}</td> -->
+             <td>{{p.price | number:'4.1-5'}}</td>
+        </tr>
+    </tbody>
+</table>

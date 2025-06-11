@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="text-center bg-primary text-white">
+        Custom Pipe Example in Angular
+    </h1>
+    <h2 class="text-center bg-warning text-white">Number: {{firstNumbber}} Cube: {{firstNumbber | cube}}</h2>
+    <h2 class="text-center bg-warning text-white">Number: {{secondNumber}} Cube: {{secondNumber | cube}}</h2>
+    <h2 class="text-center bg-warning text-white">Number: {{thirdNumber}} Cube: {{thirdNumber | cube}}</h2>
+    <br>
+    <h2 class="text-center bg-warning text-white">Bytes: {{firstByteSize}} to {{firstByteSize | dataConvergentPipe}}</h2>
+    <h2 class="text-center bg-warning text-white">Bytes: {{secondByteSize}} to {{secondByteSize | dataConvergentPipe}}</h2>
+    <h2 class="text-center bg-warning text-white">Bytes: {{thirdByteSize}} to  {{thirdByteSize | dataConvergentPipe}}</h2>
+    <br>
+    <h2 class="text-center bg-warning text-white">KiloBytes: {{firstGbSize}} to {{firstGbSize | dataConvergentPipe:'TB'}}</h2>
+    <h2 class="text-center bg-warning text-white">KiloBytes: {{secondGbSize}} to {{secondGbSize | dataConvergentPipe:'TB'}}</h2>
+    <h2 class="text-center bg-warning text-white">KiloBytes: {{thirdGbSize}} to {{thirdGbSize | dataConvergentPipe:'TB'}}</h2>
+</div>
