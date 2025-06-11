@@ -13,8 +13,124 @@
 </ul>
 <ul>
     <ng-container *ngFor="let emp of emps">
-        <li *ngIf="emp.age > 25">
+        <li *ngIf="emp.age > 28">
             <span>{{emp.name}} - {{emp.age}} - {{emp.position}}</span>
         </li>
     </ng-container>
 </ul>
+<table class="table table-primary table-striped table-hover m-2">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of emps">
+            <td>{{e.id}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.age}}</td>
+            <td>{{e.position}}</td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+<table class="table table-primary table-striped table-hover m-2">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (e of emps; track e.id) {
+            <tr>
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.age}}</td>
+                <td>{{e.position}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br/>
+<h2 class="bg-info text-white">ngSwitch example</h2>
+<ul *ngFor="let e of emps" [ngSwitch]="e.departement">
+        <span *ngSwitchCase="'It'" class="bg-success text-white">{{e.name}} - {{e.position}} (IT Department)</span>
+        <span *ngSwitchCase="'Analytics'" class="bg-primary text-white">{{e.name}} - {{e.position}} (Analytics Department)</span>
+        <span *ngSwitchCase="'Management'" class="bg-info text-white">{{e.name}} - {{e.position}} (Management Department)</span>
+        <!-- <span *ngSwitchCase="'Design'" class="">{{e.name}} - {{e.position}} (Design Department)</span> -->
+        <!-- <span *ngSwitchCase="'It Assurance'">{{e.name}} - {{e.position}} (IT Assurance Department)</span> -->
+        <span *ngSwitchDefault class="bg-danger text-white">{{e.name}} - {{e.position}} (Other Department)</span>
+</ul>
+<br/>
+<h2 class="bg-info text-white">ngIf example</h2>
+<ul *ngFor="let e of emps">
+    <li *ngIf="e.age > 28" class="bg-success text-white">
+        {{e.name}} - {{e.age}} - {{e.position}}
+    </li>
+    <li *ngIf="e.age <= 28" class="bg-warning text-dark">
+        {{e.name}} - {{e.age}} - {{e.position}}
+    </li>
+
+</ul>
+<br>
+Enter user age: <input type="number" name="userAge" id="userAge" [(ngModel)]="userAge" class="form-control w-25">
+<br>
+<div class="container bg-primary text-white">
+    @switch (userAge) {
+        @case (18) {
+            <h2 class="text center">You are eligible to cast your vote</h2>
+        }
+        @case (24) {
+            <h2 class="text center">You are eligible to mary</h2>
+        }
+        @case (35) {
+            <h2 class="text center">You are eligible to become candidate in assembly election</h2>
+        }
+        @default {
+            <h2 class="bg-danger text center">Sorry, no milestone for you</h2>
+        }
+    }
+</div>
+<br>
+@if (userAge >= 18) {
+    <h2 class="text-success">You are eligible to cast your vote</h2>
+} @else {
+    <h2 class="text-danger">You are not eligible to cast your vote</h2>
+}
+<br>
+<div class="mb-3">
+    <label for="userLuckyNumber" class="form-label">Enter number</label>
+    <input type="number" name="userLuckyNumber" id="userLuckyNumber" [(ngModel)]="userLuckyNumber" class="form-control w-25">
+</div>
+<hr>
+<div>
+    @if (userLuckyNumber == 0) {
+        <h2 class="text-danger">You have not entered any number</h2>
+    } @else if (userLuckyNumber % 2 == 0) {
+        <h2 class="text-success">Your lucky number {{userLuckyNumber}} is even</h2>
+    } @else {
+        <h2 class="text-warning">Your lucky number {{userLuckyNumber}} is odd</h2>
+    }
+</div>
+<br>
+<div class="myStyle">
+    This is my style div from CSS file
+</div>
+<br>
+@if (selected){
+    <div [ngStyle]="getStyle()">
+        [Selected] This is a simple dynamic div using ngStyle directive
+    </div>
+}
+@else {
+    <div [ngStyle]="getFailStyle()">
+        [Not Selected] This is a simple dynamic div using ngStyle directive
+    </div>
+}
+<button type="button" (click)="selected = !selected">Change selection</button>
