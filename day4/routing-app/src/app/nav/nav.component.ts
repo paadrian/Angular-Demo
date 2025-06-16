@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = true;
 }
