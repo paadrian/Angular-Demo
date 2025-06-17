@@ -1,1 +1,22 @@
-<p>student-display works!</p>
+<table class="table table-primary table-bordered table-hover m-2" data-bs-theme="dark">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Age</th>
+            <th>Student Contact</th>
+            <th>Student Fee</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (student of service.display(); track student.id) {
+            <tr>
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.contact}}</td>
+                <td>{{student.fee}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

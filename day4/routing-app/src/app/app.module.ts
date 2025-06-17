@@ -9,6 +9,8 @@ import { ContactComponent } from './contact/contact.component';
 import { StudentRegComponent } from './students/student-reg/student-reg.component';
 import { StudentDisplayComponent } from './students/student-display/student-display.component';
 import { NavComponent } from './nav/nav.component';
+import { FormsModule } from '@angular/forms';
+import { CombinedComponent } from './combined/combined.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { NavComponent } from './nav/nav.component';
     ContactComponent,
     StudentRegComponent,
     StudentDisplayComponent,
-    NavComponent
+    NavComponent,
+    CombinedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
