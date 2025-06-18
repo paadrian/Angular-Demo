@@ -1,0 +1,62 @@
+<form #form="ngForm" class="ms-2" autocomplete="off" (ngSubmit)="insertRecord(form)">
+    <input type="hidden" name="id" [value]="service.passport.id">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <label for="HolderName" class="form-label">Holder Name</label>
+                    <i class="fa fa-user-circle" aria-hidden="true" [class.green-icon]="HolderName.valid"
+                        [class.red-icon]="HolderName.invalid && HolderName.touched"></i>
+                    <input type="HolderName" #HolderName="ngModel" class="form-control" id="HolderName" name="HolderName"
+                        [(ngModel)]="service.passport.holderName" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <label for="HolderNumber" class="form-label">Holder Number</label>
+                    <i class="fa fa-diamond" aria-hidden="true" [class.green-icon]="HolderNumber.valid"
+                        [class.red-icon]="HolderNumber.invalid && HolderNumber.touched"></i>
+                    <input type="HolderNumber" #HolderNumber="ngModel" class="form-control" id="HolderNumber" name="HolderNumber"
+                        [(ngModel)]="service.passport.number" placeholder="HolderNumber" required maxlength="8" minlength="8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <label for="HolderExpiryDate" class="form-label">Holder Expiry Date</label>
+                    <i class="fa fa-calendar" aria-hidden="true" [class.green-icon]="HolderExpiryDate.valid"
+                        [class.red-icon]="HolderExpiryDate.invalid && HolderExpiryDate.touched"></i>
+                    <input type="HolderExpiryDate" #HolderExpiryDate="ngModel" class="form-control" id="HolderExpiryDate" name="HolderExpiryDate"
+                        [(ngModel)]="service.passport.expiryDate" placeholder="yyyy-MM-dd" required maxlength="10" minlength="10">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <label for="HolderCode" class="form-label">Holder Code</label>
+                    <i class="fa fa-compass" aria-hidden="true" [class.green-icon]="HolderCode.valid"
+                        [class.red-icon]="HolderCode.invalid && HolderCode.touched"></i>
+                    <input type="HolderCode" #HolderCode="ngModel" class="form-control" id="HolderCode" name="HolderCode"
+                        [(ngModel)]="service.passport.code" placeholder="HolderCode" required maxlength="8" minlength="8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg"
+         type="submit"
+         [disabled]="!form.valid">
+            <i class="fa fa-save" aria-hidden="true"></i> Save
+        </button>
+    </div>
+</form>

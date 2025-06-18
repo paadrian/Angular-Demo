@@ -1,0 +1,24 @@
+<table class="table table-hover bg-primary text-white">
+    <thead>
+        <tr>
+            <th>Passport ID</th>
+            <th>Holder Name</th>
+            <th>Number</th>
+            <th>Expiry</th>
+            <th>Code</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let passport of service.passports">
+            <td>{{ passport.id }}</td>
+            <td>{{ passport.holderName }}</td>
+            <td>{{ passport.number }}</td>
+            <td>{{ passport.expiryDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ passport.code }}</td>
+            <td>
+                <i class="fa fa-trash red-icon" aria-hidden="true" onkeypress="deleteRecord(passport.id)" (click)="deleteRecord(passport.id)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

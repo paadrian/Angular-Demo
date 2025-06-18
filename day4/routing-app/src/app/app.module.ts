@@ -11,6 +11,9 @@ import { StudentDisplayComponent } from './students/student-display/student-disp
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { CombinedComponent } from './combined/combined.component';
+import { PPDetailsComponent } from './passports/pp-details/pp-details.component';
+import { PPRegistrationComponent } from './passports/pp-registration/pp-registration.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,16 @@ import { CombinedComponent } from './combined/combined.component';
     StudentRegComponent,
     StudentDisplayComponent,
     NavComponent,
-    CombinedComponent
+    CombinedComponent,
+    PPDetailsComponent,
+    PPRegistrationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
